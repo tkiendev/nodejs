@@ -1,0 +1,41 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "scripts": {
+    "beautiful": "lint-staged",
+    "start": "nodemon --inspect src/server.js",
+    "watch": "node-sass --watch src/resources/scss/ --output src/public/css/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkiendev/nodejs.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "tkienDev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkiendev/nodejs/issues"
+  },
+  "lint-staged": {
+    "src/**/*.{js, json, scss}": "prettier --single-quote --trailing-comma all --write"
+  },
+  "homepage": "https://github.com/tkiendev/nodejs#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-handlebars": "^8.0.1",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.9",
+    "mongoose": "^8.5.3",
+    "node-sass": "^9.0.0",
+    "prettier": "^3.3.3"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.4"
+  }
+}

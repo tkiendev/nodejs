@@ -1,0 +1,33 @@
+// cấu hình đến file "variables"
+@import 'variables';
+
+
+h1 {
+    color: $red-color;
+    display: block;
+    width: 100%;
+    padding: 200px;
+    text-align: center;
+}
+
+.click {
+    background-color: aqua;
+}
+
+.card-course-item {
+    margin: 10px;
+    border: 2px outset rgba(12, 241, 234, 0.5);
+    border-radius: 2px;
+}
+
+.car-img-border-color {
+    // border: 2px groove rgba(12, 241, 234, 0.5);
+    // border-radius: 2px;
+}
+
+.video-youtobe {
+    border: 2px outset rgba(12, 241, 234, 0.5);
+    border-radius: 2px;
+    width: 560px;
+    height: 315px;
+}
