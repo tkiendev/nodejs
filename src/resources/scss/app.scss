@@ -2,14 +2,6 @@
 @import 'variables';
 
 
-h1 {
-    color: $red-color;
-    display: block;
-    width: 100%;
-    padding: 200px;
-    text-align: center;
-}
-
 .click {
     background-color: aqua;
 }
@@ -28,6 +20,11 @@ h1 {
 .video-youtobe {
     border: 2px outset rgba(12, 241, 234, 0.5);
     border-radius: 2px;
-    width: 560px;
-    height: 315px;
+}
+
+.heading {
+    display: block;
+    color: $red-color;
+    text-align: center;
+    margin: 15px 0;
 }

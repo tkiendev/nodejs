@@ -3,7 +3,7 @@ module.exports = {
     // trả về 1 obj
 
     // với 1 list 
-    mutipleMongooseToObject: (mongooseArray) => {
+    arrayMongooseToObject: (mongooseArray) => {
         return mongooseArray.map(mongoose => mongoose.toObject())
     },
 

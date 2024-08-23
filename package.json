@@ -30,7 +30,10 @@
     "express-handlebars": "^8.0.1",
     "husky": "^9.1.4",
     "lint-staged": "^15.2.9",
+    "method-override": "^3.0.0",
     "mongoose": "^8.5.3",
+    "mongoose-delete": "^1.0.2",
+    "mongoose-slug-generator": "^1.0.4",
     "node-sass": "^9.0.0",
     "prettier": "^3.3.3"
   },

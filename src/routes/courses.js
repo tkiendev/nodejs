@@ -5,6 +5,13 @@ const CourseControllers = require('../app/controllers/CourseController'); // c�
 // newsControllers.index // lấy ra phương thức index trong đối tượng "newsControllers"
 
 // :name truyền giá trị params dưới dạng key:value
-router.get('/:slug', CourseControllers.show);
+router.put('/:id', CourseControllers.update); // sửa
+router.delete('/:id', CourseControllers.delete); // xóa
+router.patch('/:id/restore', CourseControllers.restore); // khôi phục
+
+router.post('/store', CourseControllers.store);
+router.get('/create', CourseControllers.create);
+router.get('/:id/edit', CourseControllers.edit);
+router.get('/:slug', CourseControllers.showCourse);
 router.get('/', CourseControllers.course);
 module.exports = router;

@@ -6,6 +6,8 @@ const engines = require('express-handlebars').engine; // require thư viện "Te
 const route = require('./routes') // cấu hình các file để lấy các đường dẫn
 const db = require('./config/db'); // cấu hình db
 
+const methodOverride = require('method-override'); // cấu hình đến thư viện để thay đổi method
+
 // connect to db
 db.connect();
 
@@ -21,13 +23,19 @@ app.use(express.urlencoded(
 ));
 app.use(express.json());
 
+// method
+app.use(methodOverride('_method'));
 
 // HTTP logger
 app.use(morgan('combined')); // thư viện morgan
 
 // Template engine
 app.engine('hbs', engines({
-    extname: '.hbs'
+    extname: '.hbs',
+    // tọa hàm trên thư viện 'express-handlebars'
+    helpers: {
+        sum: (a, b) => a + b
+    }
 }));
 app.set('view engine', 'hbs'); // sử dụng "view engine"
 app.set('views', path.join(__dirname, 'resources', 'views')); // gọi đường dẫn đến thư mục "resources/views"

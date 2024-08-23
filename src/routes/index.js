@@ -1,6 +1,9 @@
 const newRouter = require('./news');
 const siteRouter = require('./site');
 const coursesRouter = require('./courses');
+const musicsRouter = require('./music');
+const meRouter = require('./me');
+
 
 function route(app) {
     // 2. trọc vào "resources/views/file.hbs" để lẫy data từ các "file.hbs" gán lại cho "main.hbs"
@@ -13,8 +16,10 @@ function route(app) {
     // });
 
     // viết  theo mô hình MVC
+    app.use('/me', meRouter);
     app.use('/news', newRouter);
     app.use('/course', coursesRouter);
+    app.use('/music', musicsRouter);
     app.use('/', siteRouter);
 }
 
