@@ -3,7 +3,7 @@ const { mongooseToObject } = require('../../util/mongo'); // sử lý lỗi củ
 const { arrayMongooseToObject } = require('../../util/mongo');
 class CourseControllers {
     // [GET] /course
-    course(req, res, next) {
+    list(req, res, next) {
         // res.send('check error');
         Course.find({})
             .then((courses) => {
@@ -18,7 +18,7 @@ class CourseControllers {
     }
 
     // [GET] /course/:slug
-    showCourse(req, res, next) {
+    show(req, res, next) {
         // res.send('course test:' + req.params.slug);
 
         // lấy 1 obj data từ db findOne({key : value})
@@ -46,7 +46,7 @@ class CourseControllers {
         course.save()
             .then(() => {
                 // khi save chuyển hướng trang về trang course
-                res.redirect('/course');
+                res.redirect('/me/stored/courses');
             })
             .catch((error) => {
 
@@ -78,23 +78,34 @@ class CourseControllers {
         const updateData = req.body;
 
         Course.findByIdAndUpdate(courseId, updateData)
-            .then(() => res.redirect('/me/stored/courses'))
+            .then(() => {
+                // res.send(req.body)
+                res.redirect('/me/stored/courses')
+            })
             .catch(next);
     }
 
     // [DELETE] /course/:id
-    delete(req, res, next) {
-        Course.delete({ _id: req.params.id }, req.body)
+    destroy(req, res, next) {
+        Course.delete({ _id: req.params.id })
             .then(() => res.redirect('back'))
             .catch(next);
     }
 
     // [PATCH] /course/:id/restore
+
+    // check fix bug
     restore(req, res, next) {
-        Course.restore({ _id: req.params.id }, req.body)
-            .then(() => {
-                res.redirect('back');
-            })
+        // res.send(req.params.id);
+        Course.restore({ _id: req.params.id })
+            .then(() => res.redirect('back'))
+            .catch(next);
+    }
+
+    // [DELETE] /course/:id/ force
+    forceDestroy(req, res, next) {
+        Course.deleteOne({ _id: req.params.id })
+            .then(() => res.redirect('back'))
             .catch(next);
     }
 }

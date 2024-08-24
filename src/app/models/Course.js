@@ -10,10 +10,10 @@ const slug = require('mongoose-slug-generator'); // thư viện tạo slug
 
 const Course = new Schema({
     name: { type: String, maxLength: 100, default: '', required: true, },
-    description: { type: String, maxLength: 255, default: '', required: true, },
+    description: { type: String, default: '', required: true, },
     img: { type: String, default: '' },
     slug: { type: String, slug: 'name' }, // thêm slug vào đối tượng db
-    videoID: { type: String, maxLength: 100, default: '', required: true, },
+    videoID: { type: String, default: '', },
 }, { timestamps: true, });
 
 mongoose.plugin(slug); // cấu hình mặc định của thư viện tao slug

@@ -6,12 +6,13 @@ const CourseControllers = require('../app/controllers/CourseController'); // c�
 
 // :name truyền giá trị params dưới dạng key:value
 router.put('/:id', CourseControllers.update); // sửa
-router.delete('/:id', CourseControllers.delete); // xóa
-router.patch('/:id/restore', CourseControllers.restore); // khôi phục
+router.delete('/:id', CourseControllers.destroy); // xóa ảo
+router.delete('/:id/force', CourseControllers.forceDestroy); // xóa thật
+router.patch('/:id/', CourseControllers.restore); // khôi phục
 
 router.post('/store', CourseControllers.store);
 router.get('/create', CourseControllers.create);
 router.get('/:id/edit', CourseControllers.edit);
-router.get('/:slug', CourseControllers.showCourse);
-router.get('/', CourseControllers.course);
-module.exports = router;
+router.get('/:slug', CourseControllers.show);
+router.get('/', CourseControllers.list);
+module.exports = router; 
